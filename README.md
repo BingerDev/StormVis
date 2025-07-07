@@ -72,13 +72,15 @@ To run a local instance of StormVis, please follow the steps below.
 Once the application is running in your browser:
 
 1.  **Select a Region:** Click directly on a country on the interactive map to select it.
-2.  **Choose Resolution:** Use the control panel to select either `5km` or `1km` map density.
+2.  **Choose Resolution:** Use the control panel to select either `5km` or `1km` map resolution.
 3.  **Pick a Date:** Use the date picker to select the specific day for analysis.
 4.  **Generate Map:** Click the "Generate" button to begin processing.
-5.  **View Results:** The generated lightning density map will be overlaid onto your selected country.
+5.  **View Results:** The generated product will be overlaid onto your selected country.
 
 > **⚠️ Data Availability Notice:**
 > The Meteosat-12 Lightning Imager provides operational data from **October 31, 2024, onwards**. Pre-operational data may be available from July 8, 2024, but is not guaranteed to be complete. Please select dates accordingly.
+> **⚠️ Product Availability Notice:**
+> For now, only one product is available, the **Lightning Density**. We are planning to slowly expand the available product assortment in the near future.
 
 ---
 
