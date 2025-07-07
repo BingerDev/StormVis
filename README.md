@@ -42,7 +42,7 @@ To run a local instance of StormVis, please follow the steps below.
     # On macOS/Linux:
     source venv/bin/activate
     # On Windows:
-    # venv\Scripts\activate
+    venv\Scripts\activate
     ```
 
 3.  **Install Dependencies**
