@@ -30,7 +30,7 @@ To run a local instance of StormVis, please follow the steps below.
 1.  **Clone the Repository**
     ```bash
     git clone https://github.com/yourusername/stormvis.git
-    cd stormvis
+    cd StormVis
     ```
 
 2.  **Create and Activate a Virtual Environment**
