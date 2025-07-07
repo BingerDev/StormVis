@@ -55,7 +55,7 @@ To run a local instance of StormVis, please follow the steps below.
     ```bash
     cp .env.example .env
     ```
-    Now, edit the `.env` file with your EUMDAC API credentials: [Guide on how to obtain them]([https://user.eumetsat.int/resources/user-guides/eumetsat-data-access-client-eumdac-guide](https://coemct.met.gov.om/pluginfile.php/3453/mod_resource/content/0/Data%20Store%20and%20Data%20Tailor%20through%20EUMDAC.pdf))
+    Now, edit the `.env` file with your EUMDAC API credentials: [Guide on how to obtain them](https://user.eumetsat.int/resources/user-guides/eumetsat-data-access-client-eumdac-guide](https://coemct.met.gov.om/pluginfile.php/3453/mod_resource/content/0/Data%20Store%20and%20Data%20Tailor%20through%20EUMDAC.pdf))
     ```ini
     EUMDAC_CLIENT_ID="your_client_id_here"
     EUMDAC_CLIENT_SECRET="your_client_secret_here"
