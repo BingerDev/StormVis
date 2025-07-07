@@ -79,6 +79,7 @@ Once the application is running in your browser:
 
 > **⚠️ Data Availability Notice:**
 > The Meteosat-12 Lightning Imager provides operational data from **October 31, 2024, onwards**. Pre-operational data may be available from July 8, 2024, but is not guaranteed to be complete. Please select dates accordingly.
+
 > **⚠️ Product Availability Notice:**
 > For now, only one product is available, the **Lightning Density**. We are planning to slowly expand the available product assortment in the near future.
 
