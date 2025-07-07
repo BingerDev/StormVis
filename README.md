@@ -29,7 +29,7 @@ To run a local instance of StormVis, please follow the steps below.
 
 1.  **Clone the Repository**
     ```bash
-    git clone https://github.com/yourusername/stormvis.git
+    git clone https://github.com/BingerDev/StormVis.git
     cd StormVis
     ```
 
