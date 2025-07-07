@@ -1,0 +1,538 @@
+/* static/css/style.css */
+
+@import url('https://fonts.googleapis.com/css2?family=Noto+Color+Emoji&display=swap');
+
+
+.flag-emoji {
+    font-family: 'Noto Color Emoji', 'Inter', sans-serif;
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+:root {
+    --primary-accent: #38bdf8;
+    --primary-glow: rgba(56, 189, 248, 0.4);
+    
+    --bg-dark: #111827;
+    --surface-dark: #1f2937;
+    --surface-raised: #374151;
+    --surface-inset: #111827;
+    
+    --glass-bg: rgba(31, 41, 55, 0.5);
+    --glass-border: rgba(56, 189, 248, 0.2);
+    
+    --shadow-dark: rgba(0, 0, 0, 0.6);
+    --shadow-light: rgba(255, 255, 255, 0.04);
+    
+    --text-primary: #f9fafb;
+    --text-secondary: #d1d5db;
+    --text-muted: #9ca3af;
+    
+    --blur-amount: 16px;
+    --animation-speed: 0.3s;
+    --hover-scale: 1.02;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+button, input, select,
+.floating-controls, .glass-loader,
+.selected-country-display,
+.modal-backdrop, .glass-modal,
+.control-toggle-btn, .control-toggle-btn svg {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.leaflet-container,
+.leaflet-container *,
+.leaflet-marker-icon,
+.leaflet-marker-shadow,
+.leaflet-tile {
+    transition: none !important;
+}
+
+html, body {
+    height: 100vh;
+    width: 100vw;
+    overflow: hidden;
+    background: var(--bg-dark);
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    color: var(--text-primary);
+}
+
+#map {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+}
+
+.floating-controls {
+    position: absolute;
+    top: 1.5rem;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 1000;
+    
+    background: var(--glass-bg);
+    backdrop-filter: blur(var(--blur-amount));
+    -webkit-backdrop-filter: blur(var(--blur-amount));
+    border: 1px solid var(--glass-border);
+    border-radius: 20px;
+    padding: 1rem 1.5rem;
+    
+    box-shadow: 
+        0 10px 30px var(--shadow-dark),
+        inset 0 1px 0 var(--shadow-light);
+    
+    animation: slideDown 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
+    
+    transition: transform 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+@keyframes slideDown {
+    from {
+        opacity: 0;
+        transform: translateX(-50%) translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(-50%) translateY(0);
+    }
+}
+
+.floating-controls.panel-hidden {
+    transform: translateX(-50%) translateY(calc(-100% + -10px));
+}
+
+.floating-controls.panel-hidden .control-toggle-btn svg {
+    transform: rotate(180deg);
+}
+
+.controls-form {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+.brand-title {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin-right: 1.5rem;
+    letter-spacing: -0.02em;
+}
+
+.glass-select,
+.glass-input {
+    background: var(--surface-dark);
+    border: 1px solid var(--surface-raised);
+    border-radius: 12px;
+    padding: 0.5rem 1rem;
+    color: var(--text-secondary);
+    font-size: 0.875rem;
+    min-width: 140px;
+    outline: none;
+    cursor: pointer;
+}
+
+.glass-select:hover,
+.glass-input:hover {
+    border-color: var(--primary-accent);
+}
+
+.glass-select:focus,
+.glass-input:focus {
+    border-color: var(--primary-accent);
+    box-shadow: 0 0 0 3px var(--primary-glow);
+}
+
+.glass-select {
+    appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath fill='%239ca3af' d='M6 8L0 0h12z'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 1rem center;
+    padding-right: 2.5rem;
+}
+
+.glass-select option {
+    background: var(--bg-dark);
+    color: var(--text-primary);
+}
+
+input[type="number"].glass-input {
+    width: 80px;
+}
+
+input[type="date"]::-webkit-calendar-picker-indicator {
+    filter: invert(0.8) brightness(0.9);
+    cursor: pointer;
+}
+
+.btn-glow {
+    background: var(--primary-accent);
+    border: none;
+    color: white;
+    padding: 0.5rem 1.5rem;
+    border-radius: 12px;
+    font-weight: 500;
+    font-size: 0.875rem;
+    cursor: pointer;
+    box-shadow: 0 4px 15px -5px var(--primary-glow);
+}
+
+.btn-glow:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px -5px var(--primary-glow);
+}
+
+.btn-glow:active {
+    transform: translateY(-1px);
+}
+
+.btn-glow:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    transform: none;
+    box-shadow: none;
+}
+
+@keyframes pulse-glow {
+    0%, 100% { box-shadow: 0 4px 15px -5px var(--primary-glow); }
+    50% { box-shadow: 0 4px 25px -5px var(--primary-glow); }
+}
+
+.btn-glow.loading {
+    animation: pulse-glow 1.5s ease-in-out infinite;
+}
+
+.control-toggle-btn {
+    position: absolute;
+    bottom: -15px;
+    left: 50%;
+    transform: translateX(-50%);
+    
+    width: 60px;
+    height: 30px;
+    
+    background: var(--glass-bg);
+    backdrop-filter: blur(var(--blur-amount));
+    -webkit-backdrop-filter: blur(var(--blur-amount));
+    border: 1px solid var(--glass-border);
+    border-top: none;
+    border-radius: 0 0 14px 14px;
+    
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+    color: var(--text-muted);
+    cursor: pointer;
+    outline: none;
+    
+    box-shadow: 
+        0 8px 15px var(--shadow-dark),
+        inset 0 1px 0 var(--shadow-light);
+    
+    transition: all var(--animation-speed) cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.control-toggle-btn:hover {
+    color: var(--primary-accent);
+    box-shadow: 
+        0 10px 20px var(--shadow-dark),
+        inset 0 1px 0 var(--shadow-light);
+}
+
+.control-toggle-btn svg {
+    transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.glass-loader {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1002;
+    background: var(--glass-bg);
+    backdrop-filter: blur(var(--blur-amount));
+    -webkit-backdrop-filter: blur(var(--blur-amount));
+    border: 1px solid var(--glass-border);
+    border-radius: 16px;
+    padding: 2rem;
+    box-shadow: 0 10px 30px var(--shadow-dark);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    opacity: 0;
+    animation: fadeIn 0.3s forwards;
+}
+
+.glass-spinner {
+    width: 40px;
+    height: 40px;
+    border: 4px solid var(--surface-raised);
+    border-top-color: var(--primary-accent);
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin { to { transform: rotate(360deg); } }
+
+.loader-text {
+    color: var(--text-secondary);
+    font-size: 0.875rem;
+    font-weight: 500;
+}
+
+.map-faded {
+    opacity: 0.5;
+    filter: saturate(0.5);
+}
+
+#map-interaction-blocker {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 999;
+    background: transparent;
+    cursor: progress;
+}
+
+.glass-modal {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 2001;
+    width: 90%;
+    max-width: 800px;
+}
+
+.glass-modal .modal-content {
+    background: var(--glass-bg);
+    backdrop-filter: blur(var(--blur-amount));
+    -webkit-backdrop-filter: blur(var(--blur-amount));
+    border: 1px solid var(--glass-border);
+    border-radius: 20px;
+    box-shadow: 0 10px 40px var(--shadow-dark);
+    overflow: hidden;
+}
+
+.glass-modal .modal-header {
+    border-bottom: 1px solid var(--surface-raised);
+    padding: 1.5rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.glass-modal .modal-title {
+    font-weight: 600;
+    font-size: 1.125rem;
+    margin: 0;
+}
+
+.glass-modal .modal-body {
+    padding: 1.5rem 2rem;
+    max-height: calc(80vh - 100px);
+    overflow-y: auto;
+}
+
+.glass-modal .modal-body::-webkit-scrollbar { width: 6px; }
+.glass-modal .modal-body::-webkit-scrollbar-track { background: transparent; }
+.glass-modal .modal-body::-webkit-scrollbar-thumb { background: var(--surface-raised); border-radius: 3px; }
+
+.glass-modal .btn-close {
+    background: transparent;
+    border: none;
+    color: var(--text-muted);
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+
+.glass-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.glass-table thead th {
+    padding: 0.75rem 1rem;
+    text-align: left;
+    font-weight: 500;
+    font-size: 0.75rem;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    border-bottom: 1px solid var(--surface-raised);
+}
+
+.glass-table tbody tr {
+    border-bottom: 1px solid var(--surface-raised);
+}
+.glass-table tbody tr:last-child {
+    border-bottom: none;
+}
+
+.glass-table tbody td {
+    padding: 0.75rem 1rem;
+    font-size: 0.875rem;
+    color: var(--text-secondary);
+}
+
+.glass-table tfoot td {
+    padding: 1rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    border-top: 2px solid var(--surface-raised);
+}
+
+.modal-backdrop {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(17, 24, 39, 0.8);
+    backdrop-filter: blur(4px);
+    z-index: 2000;
+}
+
+.hidden { display: none !important; }
+
+.leaflet-control-zoom {
+    border: 1px solid var(--surface-raised) !important;
+    border-radius: 12px !important;
+}
+
+.leaflet-control-zoom a {
+    background: var(--surface-dark) !important;
+    color: var(--text-primary) !important;
+}
+
+.leaflet-control-attribution {
+    background: rgba(17, 24, 39, 0.7) !important;
+    color: var(--text-muted) !important;
+}
+.leaflet-control-attribution a {
+    color: var(--text-secondary) !important;
+}
+
+@media (max-width: 768px) {
+    .floating-controls {
+        width: calc(100% - 2rem);
+        left: 1rem;
+        top: 1rem;
+        transform: none;
+        padding: 1rem;
+    }
+    
+    .floating-controls.panel-hidden {
+        transform: translateY(calc(-100% + -10px));
+    }
+    
+    .controls-form {
+        flex-direction: column;
+        align-items: stretch;
+    }
+    .brand-title {
+        text-align: center;
+        margin: 0 0 1rem 0;
+    }
+}
+
+@keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+:focus-visible { outline: 2px solid var(--primary-accent); outline-offset: 2px; }
+
+.selected-country-display {
+    position: absolute;
+    top: 1.5rem;
+    left: 1.5rem;
+    z-index: 1000;
+    
+    background: var(--glass-bg);
+    backdrop-filter: blur(var(--blur-amount));
+    -webkit-backdrop-filter: blur(var(--blur-amount));
+    border: 1px solid var(--glass-border);
+    border-radius: 16px;
+    padding: 0.6rem 1.2rem;
+    
+    box-shadow: 
+        0 8px 25px var(--shadow-dark),
+        inset 0 1px 0 var(--shadow-light);
+    
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    
+    font-size: 1rem;
+    font-weight: 500;
+    color: var(--text-primary);
+    
+    opacity: 0;
+    transform: translateY(-20px);
+    transition: opacity var(--animation-speed) ease-in-out, transform var(--animation-speed) ease-in-out;
+    pointer-events: none;
+}
+
+.selected-country-display:not(.hidden) {
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
+}
+
+.selected-country-display .flag-emoji {
+    font-size: 1.5rem;
+    line-height: 1; 
+    margin-top: -2px; 
+}
+
+.leaflet-zoom-anim .leaflet-zoom-animated {
+    transition-duration: 0.25s !important;
+}
+
+.leaflet-fade-anim .leaflet-tile-loaded {
+    transition: opacity 0.2s linear !important;
+}
+
+.leaflet-control-zoom a {
+    transition: all 0.1s ease !important;
+}
+
+.leaflet-control-zoom a:active {
+    transform: scale(0.95);
+}
+
+.leaflet-overlay-pane {
+    transition: none !important;
+}
+
+.lightning-overlay {
+    image-rendering: -webkit-optimize-contrast;
+    image-rendering: crisp-edges;
+    transition: opacity 0.3s ease !important;
+}
+
+.leaflet-tile-container {
+    transition: none !important;
+}
+
+.leaflet-tile {
+    transition: opacity 0.15s linear !important;
+}
+
+.leaflet-zoom-anim .leaflet-zoom-animated {
+    will-change: transform;
+    backface-visibility: hidden;
+    perspective: 1000px;
+}

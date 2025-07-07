@@ -1,0 +1,67 @@
+<!-- templates/index.html -->
+ 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>StormVis</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div id="selected-country" class="selected-country-display hidden"></div>
+    <div id="map"></div>
+    <div id="map-interaction-blocker" class="hidden"></div>
+    <div class="floating-controls">
+        <form id="generator-form" class="controls-form">
+            <h1 class="brand-title">StormVis</h1>
+            
+            <select class="glass-select" id="product-label" name="product-label" disabled style="opacity: 0.8; cursor: default;">
+                <option selected>Lightning Density</option>
+            </select>
+            
+            <select class="glass-select" id="resolution" name="resolution" required>
+                <option value="lowres" selected>5 km (Low-res)</option>
+                <option value="hires">1 km (High-res)</option>
+            </select>
+            
+            <div id="date-monthly-controls" class="controls-group hidden">
+                <input type="number" class="glass-input" id="year" name="year" value="2025" placeholder="Year">
+                <input type="number" class="glass-input" id="month" name="month" value="7" min="1" max="12" placeholder="Month">
+            </div>
+            
+            <div id="date-daily-controls" class="controls-group">
+                <input type="date" class="glass-input" id="date" name="date" required>
+            </div>
+            
+            <button type="submit" id="generate-btn" class="btn-glow">Generate</button>
+        </form>
+        
+        <button class="control-toggle-btn" id="control-toggle">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
+                <path d="M8 4L3 9h10L8 4z"/>
+            </svg>
+        </button>
+    </div>
+
+    <div id="map-loader" class="glass-loader hidden">
+        <div class="glass-spinner"></div>
+        <p class="loader-text" id="progress-text">Initializing...</p>
+    </div>
+
+    <div class="modal-backdrop hidden" id="modal-backdrop"></div>
+    <div class="glass-modal hidden" id="table-modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 class="modal-title">Lightning Analysis</h2>
+                <button type="button" class="btn-close" id="modal-close">&times;</button>
+            </div>
+            <div class="modal-body" id="result-table-container"></div>
+        </div>
+    </div>
+
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+</body>
+</html>
