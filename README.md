@@ -15,23 +15,6 @@ StormVis is an advanced, interactive web platform for visualizing satellite-base
 -   **🎨 Modern & Responsive UI:** A clean and modern glass-morphism inspired interface with a dark theme that works seamlessly on both desktop and mobile devices.
 -   **💾 Intelligent Caching:** An efficient caching mechanism minimizes redundant data processing and accelerates map generation for repeated queries.
 
-## 🛠️ Technology Stack
-
-The platform is built on a robust and modern technology stack, separating backend processing from frontend rendering.
-
-| Area      | Technology           | Purpose                                              |
-| :-------- | :------------------- | :--------------------------------------------------- |
-| **Backend** | Python 3.8+          | Powers the core application logic.                   |
-|           | Flask                | Serves the web application and API endpoints.        |
-|           | EUMDAC API           | Provides programmatic access to EUMETSAT data.       |
-|           | NumPy & Pandas       | Enables high-performance numerical data manipulation. |
-|           | Xarray               | Handles multi-dimensional NetCDF satellite data.     |
-|           | Cartopy & Matplotlib | Generates geospatial map overlays from raw data.     |
-| **Frontend**| Leaflet.js           | Renders interactive, pannable, and zoomable maps.    |
-|           | Vanilla JavaScript   | Manages user interactions and API communication.     |
-|           | Server-Sent Events   | Streams live progress updates from the backend.      |
-|           | CSS3                 | Styles the modern, responsive user interface.        |
-
 ## 🚀 Getting Started
 
 To run a local instance of StormVis, please follow the steps below.
