@@ -1,11 +1,11 @@
-# ⚡ StormVis: Interactive Satellite Lightning Visualization Platform
+# ⚡ StormVis: Real-time Lightning Analysis from Meteosat-12 LI
 
 [![Python](https://img.shields.io/badge/python-3.8+-blue.svg)](https://www.python.org/downloads/)
 [![Flask](https://img.shields.io/badge/flask-2.0+-green.svg)](https://flask.palletsprojects.com/)
 [![License](https://img.shields.io/badge/license-MIT-purple.svg)](LICENSE)
 [![Leaflet](https://img.shields.io/badge/leaflet-1.9.4-brightgreen.svg)](https://leafletjs.com/)
 
-StormVis is an advanced, interactive web platform for visualizing satellite-based lightning detection data. Leveraging near real-time information from the **Meteosat-12 (MTG-I1) Lightning Imager**, this tool provides researchers, meteorologists, and enthusiasts with high-fidelity, customizable density maps of lightning activity across the globe.
+StormVis is an advanced, interactive web platform for visualizing satellite-based lightning detection data from the **Meteosat-12 (MTG-I1) Lightning Imager**. This tool provides researchers, meteorologists, and enthusiasts with high-fidelity, customizable maps of lightning activity across the globe.
 
 ## ✨ Core Features
 
